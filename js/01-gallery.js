@@ -2,7 +2,8 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const gallery = document.querySelector('.gallery');
-const preEl = null;
+
+
 const icon = galleryItems
     .map(image => 
         `<div class="gallery__item">
@@ -20,7 +21,8 @@ gallery.insertAdjacentHTML('afterbegin', icon);
 
 function bigImage(event) {
     const target = event.target;
-    if (target.nodeName !== 'IMG') {
+    if (target.nodeName !== 'IMG' || target.nodeName == 'A') {
+        event.preventDefault();
         return;
     }
     event.preventDefault();
