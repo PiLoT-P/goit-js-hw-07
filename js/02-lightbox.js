@@ -10,13 +10,10 @@ const icon = galleryItems
             class="gallery__image" 
             src="${image.preview}" 
             alt="${image.description}" 
+            title="${image.description}"
             />
         </a>`)
     .join('');
 gallery.insertAdjacentHTML('afterbegin', icon);
 
-const lightbox = new SimpleLightbox('.gallery a', {
-    
-});
-
-console.log('<h3 class="attireTitleType3">Custom content</h3>');
+const lightbox = new SimpleLightbox('.gallery a', {captionDelay: 250,});
