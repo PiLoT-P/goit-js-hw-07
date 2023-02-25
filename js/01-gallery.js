@@ -20,7 +20,11 @@ gallery.insertAdjacentHTML('afterbegin', icon);
 
 function bigImage(event) {
     event.preventDefault();
-    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" width="800" height="600">`)
+    const instance = basicLightbox.create(`
+    <div class="modal">
+    <img src="${event.target.dataset.source}">
+    </div>
+    `)
     instance.show()
 }
 
