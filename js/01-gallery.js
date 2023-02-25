@@ -2,11 +2,11 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const gallery = document.querySelector('.gallery');
-
+const preEl = null;
 const icon = galleryItems
     .map(image => 
         `<div class="gallery__item">
-            <a class="gallery__link" href="large-image.jpg">
+            <a class="gallery__link" href="${image.original}">
                 <img
                 class="gallery__image"
                 src="${image.preview}"
@@ -19,6 +19,10 @@ const icon = galleryItems
 gallery.insertAdjacentHTML('afterbegin', icon);
 
 function bigImage(event) {
+    const target = event.target;
+    if (target.nodeName !== 'IMG') {
+        return;
+    }
     event.preventDefault();
     const instance = basicLightbox.create(`
     <div class="modal">
